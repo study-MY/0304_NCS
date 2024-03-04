@@ -1,0 +1,316 @@
+body {
+  background-color: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+
+  line-height: 1.5;
+  font-style: normal;
+  /* font */
+  color: #333333;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
+}
+.blind {
+  position: absolute;
+  text-indent: -9999px;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+}
+.inner {
+  display: flex;
+  flex-direction: row;
+  /* min-height: calc(100% - 120px); */
+  min-height: calc(100vh - 120px);
+}
+
+/* HEADER */
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 200px;
+  padding-top: 40px;
+}
+
+#logo img {
+  display: block;
+  margin: 0 auto;
+}
+
+.gnb a {
+  display: block;
+}
+.depth-01 {
+  position: relative;
+}
+.depth-01 > li > a {
+  width: 100%;
+  height: 56px;
+  padding: 0 8px;
+  line-height: 56px;
+
+  font-weight: 700;
+  font-size: 18px;
+}
+.depth-02 {
+  position: absolute;
+  z-index: 1000;
+  left: 100%;
+
+  width: 100%;
+  max-height: 0;
+
+  padding: 0;
+
+  overflow-y: hidden;
+
+  transition: all 0.2s;
+}
+.depth-01 > li:hover {
+  background-color: #b2e794;
+}
+.depth-01 li:hover .depth-02 {
+  transform: translateY(-56px);
+
+  max-height: 500px;
+
+  /* padding: 12px 0; */
+  background-color: #eee;
+}
+.depth-02 > li {
+  padding: 12px;
+}
+.depth-02 > li:hover {
+  background-color: #b2e794;
+}
+
+/* MAIN */
+main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  /* height: calc(100% - 120px); 이거 플렉스로 어떻게 해야 만들 수 있지? 매 번 헤매네.*/
+  height: calc(100vh - 120px);
+}
+.main-contents {
+  /* display: flex; */
+  width: 400px;
+}
+.banner img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.board {
+  display: flex;
+  flex-direction: row;
+  min-height: calc(100% - 100px - 200px);
+
+  padding: 12px;
+}
+.tab {
+  display: block;
+  position: relative;
+  width: 50%;
+}
+
+.board h2 a {
+  display: block;
+  padding: 8px 0;
+  color: #666;
+  text-align: center;
+  font-size: 24px;
+}
+
+.board .tab.active h2 a {
+  color: #333333;
+  border-bottom: 2px solid #333333;
+}
+.tab .list-bbs {
+  display: none;
+}
+.tab .gallery {
+  display: none;
+}
+
+.tab.active .list-bbs {
+  display: block;
+  position: absolute;
+  width: 200%;
+}
+.tab.active .list-bbs li {
+  padding: 4px 0;
+}
+.tab.active .list-bbs a {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tab.active .list-bbs p {
+  display: block;
+  width: 60%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 500;
+}
+
+.list-bbs span {
+  display: block;
+  color: #666;
+  font-size: 12px;
+}
+
+.tab.active .gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 12px;
+  width: 200%;
+  transform: translateX(-50%);
+}
+.gallery a {
+  display: inline-block;
+}
+.gallery img {
+  display: block;
+  width: 100%;
+}
+
+.goto-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 1px solid #d9d9d9;
+  height: 200px;
+  padding: 40px 12px;
+}
+.goto-wrap a {
+  display: block;
+  flex-grow: 1;
+  max-width: 80px;
+  max-height: 80px;
+}
+.goto-wrap .goto {
+  display: block;
+  height: 100%;
+  background: url("./../images/gallery_2.jpg") center;
+}
+
+.photo {
+  display: block;
+
+  position: relative;
+
+  width: calc(100% - 400px);
+  height: 100%;
+  background-color: burlywood;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.slide-container {
+  display: flex;
+  flex-direction: row;
+
+  position: absolute;
+
+  width: 300%;
+  height: 100%;
+}
+.slide-container li {
+  width: 100%;
+}
+.slide-container li img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: 120px;
+
+  padding: 0 12px;
+}
+
+.ft-logo img {
+  display: block;
+  width: 120px;
+  filter: grayscale(100%);
+}
+.ft-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ft-info p {
+  font-size: 12px;
+}
+
+.family-site a {
+  font-size: 20px;
+  font-weight: 600;
+}
+.family-site a + a {
+  margin-left: 12px;
+}
+
+/* modal */
+.modal_bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 400px;
+  height: 300px;
+
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+.modal-tit {
+  font-size: 22px;
+  font-weight: 700;
+}
+.btn-close {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+
+  padding: 8px 12px;
+
+  color: #ffffff;
+  background-color: #000;
+  border-radius: 4px;
+  cursor: pointer;
+}
